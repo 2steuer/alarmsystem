@@ -32,4 +32,4 @@ There are some dependencies:
     - https://github.com/2steuer/GSMComm Compile from source and add GSMCommShared and GSMCommunication to the SMS Project.
     - http://www.scampers.org/steve/sms/libraries.htm Download GSMComm from here and add PDUConverter to the project references
 
-Sadly, the steps with GSMComm are needed to ensure the compatibility to mono (since some SerialPort issues), but the PDUConverter from the repository is broken. So we need the original, closed-source and pre-compiled library from here.
+Sadly, the steps with GSMComm are needed to ensure the compatibility to mono (since some SerialPort issues), but the PDUConverter from the repository is broken. So we need the original, closed-source and pre-compiled library from here. If there is an opportunity, I will most probably change to another Library for this task. Writing my own is not effective, since there are quite some outside. If someone has a good tip and/or experiences with GSM/SMS/AT-Command Librarys, please let me know.
