@@ -23,6 +23,8 @@ See AlarmSystemConfig.example.xml - Documentation will follow soon. This file ne
 
 ## Dependencies
 There are some dependencies:
+ - For SMS, TriggerRequestHandler to work you need the https://github.com/2steuer/alarm2sms-web Web Interface (based on laravel) installed and configured. Note the Database Seed which adds admin@admin.com:admin as default credentials.
+   Further instructions on this will be made public in near future.
  - For Telegram Plugin, please download the source of https://github.com/MrRoundRobin/telegram.bot 
    When done, remove all Dependencies but NewtonSoft.JSON and WebApi.Client and compile it from source. Thenn add the reference to Telegram Plugin manually.
  - For Printer Plugin: https://github.com/yukimizake/ThermalDotNet Compile from source and add the reference to the project
