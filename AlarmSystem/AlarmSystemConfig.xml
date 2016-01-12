@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<AlarmSystem>
+  <Config>
+    <Log>
+      <Console>
+        <Enabled>True</Enabled>
+        <Level>2</Level>
+      </Console>
+      <File>
+        <Enabled>True</Enabled>
+        <Level>3</Level>
+        <FileName>log/AlarmSystem.log</FileName>
+      </File>
+    </Log>
+
+    <Database>
+      <Host>alarmsys</Host>
+      <User>alarmsys</User>
+      <Password>alarmsys</Password>
+      <DatabaseName>alarmsys</DatabaseName>
+    </Database>
+
+    <PluginConfig>
+      <ThermalPrinterPlugin>
+        <Port>/dev/ttyS0</Port>
+        <Baud>38400</Baud>
+      </ThermalPrinterPlugin>
+
+      <SmsPlugin>
+        <Port>/dev/ttyUSB0</Port>
+        <Baud>115200</Baud>
+        <MessagesPerTick>2</MessagesPerTick>
+      </SmsPlugin>
+
+      <TelegramPlugin>
+        <ApiKey>176205669:AAGhAKnuyeH0A00GfMxQgPGhEaGedL3-1gI</ApiKey>
+        <ForwardChatId>-58688263</ForwardChatId>
+      </TelegramPlugin>
+
+      <ServerPlugin>
+        <Port>2525</Port>
+        <Path>api</Path>
+        <Authentication>True</Authentication>
+
+        <Credentials>
+          <User>trigger</User>
+          <Password>pass</Password>
+        </Credentials>
+      </ServerPlugin>
+    </PluginConfig>
+  </Config>
+
+  <Wiring>
+    <Wire type="Message" source="TelegramPlugin" sink="ThermalPrinterPlugin" />
+    <Wire type="Message" source="SmsPlugin" sink="ThermalPrinterPlugin" />
+    <Wire type="Message" source="SmsPlugin" sink="TelegramPlugin" />
+
+    <Wire type="TriggerRequest" source="ServerPlugin" sink="TriggerRequestHandler" />
+
+    <Wire type="Freetext" source="TriggerRequestHandler" sink="ThermalPrinterPlugin" />
+    <Wire type="Freetext" source="TriggerRequestHandler" sink="TelegramPlugin" />
+    
+    <Wire type="TriggerMessage" source="TriggerRequestHandler" sink="SmsPlugin" />
+  </Wiring>
+</AlarmSystem>
