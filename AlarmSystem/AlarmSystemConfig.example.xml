@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <AlarmSystem>
   <Config>
@@ -34,8 +34,8 @@
       </SmsPlugin>
 
       <TelegramPlugin>
-        <ApiKey>176205669:AAGhAKnuyeH0A00GfMxQgPGhEaGedL3-1gI</ApiKey>
-        <ForwardChatId>-58688263</ForwardChatId>
+        <ApiKey>your telegram key</ApiKey>
+        <ForwardChatId>chat id to forward messages to</ForwardChatId>
       </TelegramPlugin>
 
       <ServerPlugin>
